@@ -1,1 +1,50 @@
-<p>products works!</p>
+<div class="container-v">
+    <div class="header">
+        <span class="iconHeader left"></span>
+        <h2>Listado de productos</h2>
+        <img class="iconHeader right" src="../../assets/resources/Icon_add_w.svg" width="35px" height="35px" alt="Add Product">
+    </div>
+    <div class="card">
+        <table mat-table [dataSource]="dataSource" class="productList">
+          
+            <!-- Product Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Producto </th>
+              <td mat-cell *matCellDef="let element" routerLink="/details/{{element.id}}"> 
+                  <img src="../../assets/resources/{{element.image}}">
+                  <a>{{element.name}} </a>
+              </td>
+            </ng-container>
+          
+            <!-- SKU Column -->
+            <ng-container matColumnDef="sku">
+              <th mat-header-cell *matHeaderCellDef> SKU </th>
+              <td mat-cell *matCellDef="let element">
+                  <a>{{element.sku}}</a>
+              </td>
+            </ng-container>
+          
+            <!-- Barcode Column -->
+            <ng-container matColumnDef="barcode">
+              <th mat-header-cell *matHeaderCellDef> Código de barras </th>
+              <td mat-cell *matCellDef="let element"> 
+                  <a>{{element.barcode}}</a> 
+              </td>
+            </ng-container>
+          
+            <!-- Status Column -->
+            <ng-container matColumnDef="image">
+              <th mat-header-cell *matHeaderCellDef> Estado </th>
+              <td mat-cell *matCellDef="let element"> 
+                  <mat-slide-toggle [checked]="element.enabled" (change)="statusChange($event, element.id)">
+                  </mat-slide-toggle> 
+              </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>

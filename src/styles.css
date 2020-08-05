@@ -1,4 +1,230 @@
-/* You can add global styles to this file, and also import other style files */
-
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #F3F4F5;padding: 35px}
+
+.container-v {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.container-h {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: stretch;
+}
+
+.container-v.subcontainer {
+    width: 40%;
+    margin-right: 25px;
+}
+
+.header {
+    width: 100%;
+    height: 75px;
+    border-radius: 10px;
+    margin: 15px 0;
+    background-color: #6E5EF8;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .header h2 {
+        margin: 0;
+    }
+
+    .header .iconHeader.right {
+        margin-top: 5px;
+        padding-right: 50px;
+    }
+    .header .iconHeader.left {
+        margin-top: 5px;
+        padding-left: 50px;
+    }
+
+.card {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+    background-color: #FFFFFF;
+}
+
+    .card .titleCard {
+        padding: 25px 0px 0px 25px;
+        margin: 0;
+        color: #6E5EF8;
+    }
+
+    .card .imageProduct {
+        padding: 25px 0px 0px 25px;
+        width: 200px;
+    }
+
+    .card .productDetails {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 25px 0px 0px 25px;
+    }
+
+    .card .category {
+        color:#6F696F;
+        display: block;
+        font-size: 13px;
+    }
+
+    .card .switchSummary {
+       display: flex;
+       flex-direction: column;
+       align-items: flex-end;
+       padding: 25px;
+    }
+
+    .card .switchSummary .category {
+        margin: 0px 5px 5px 0px;
+    }
+
+    .card .radioRequirements {
+        display: flex;
+        flex-direction: column;
+        padding: 25px 0px 50px 25px;
+    } 
+
+    .card .radioRequirements .margin {
+        margin: 15px 0px 5px 0px;
+    }
+
+.productList tr.mat-row:hover a {
+    color: #6E5EF8 !important;
+    font-size: 15px;
+    transition: font-size 0.5s;
+}
+
+.productList tr.mat-row:active a {
+    color: #000000 !important;
+    font-size: 15px;
+    transition: font-size 0.5s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Re-Style Mat Components */
+
+/* Material Table */
+table.mat-table {
+    width: 100%;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0px 40px 40px 40px;
+}
+
+.mat-cell {
+    color: #525251 !important;
+}
+
+th.mat-header-cell {
+    border-bottom-width: 0px !important;
+    border-bottom-style: none !important;
+    min-width: 100px;
+    color: #6F696F;
+}
+
+.productList th.mat-header-cell:first-of-type,
+.productList td.mat-cell:first-of-type,
+.productList td.mat-footer-cell:first-of-type {
+    padding-left: 0px !important;
+}
+
+.productList td.mat-cell:first-of-type {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px 10px 0px;
+    min-width: 700px;
+}
+td.mat-cell:first-of-type img {
+    margin-right: 20px;
+}
+
+/* Material Slide Toggle */
+.mat-slide-toggle-thumb-container {
+    left: 2px !important;
+    top: -2px !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container {
+    transform: translate3d(26px, 0, 0) !important;
+}
+
+.mat-slide-toggle-thumb {
+    margin-top: 5px;
+    background-color: white !important;
+}
+
+.mat-slide-toggle-bar {
+    height: 26px !important;
+    width: 50px !important;
+    border-radius: 15px !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: #6E5EF8;
+}
+
+.mat-slide-toggle.mat-checked .mat-ripple-element {
+    background-color: #6E5EF8;
+}
+
+.mat-slide-toggle .mat-slide-toggle-ripple {
+    top: calc(50% - 15px) !important;
+}
+
+/* Material Progress Bar */
+.mat-progress-bar {
+    height: 25px !important;
+    width: 150px !important;
+    border-radius: 8px;
+    -webkit-box-shadow: -1px 2px 20px -7px rgba(0,0,0,0.5);
+    -moz-box-shadow: -1px 2px 20px -7px rgba(0,0,0,0.5);
+    box-shadow: -1px 2px 20px -7px rgba(0,0,0,0.5);
+}
+
+.mat-progress-bar-buffer {
+    background-color: white;
+}
+
+.mat-progress-bar-fill::after {
+    background-color: #6E5EF8;
+    transition: all 3s !important;
+}
+
+/* Material Checkbox */
+.mat-checkbox-inner-container {
+    margin-right: 35px !important;
+}
+.mat-checkbox-background, .mat-checkbox-frame {
+    border-radius: 70% !important;
+    border-color: #6E5EF8;
+}
+
+.mat-checkbox-checked .mat-checkbox-background, .mat-ripple-element{
+    background-color: #6E5EF8 !important;
+}
+
+/* Material Paginator */
+.mat-paginator {
+    border-radius: 10px;
+}

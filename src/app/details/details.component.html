@@ -1,1 +1,99 @@
-<p>details works!</p>
+<div class="container-v">
+    <div class="header">
+        <img class="iconHeader left" src="../../assets/resources/Icon_back_w.svg" width="35px" height="35px" alt="Back" routerLink="/products">
+        <h2>{{currentProduct.name}}</h2>
+        <img class="iconHeader right" src="../../assets/resources/Icon_edit_w.svg" width="35px" height="35px" alt="Edit Product">
+    </div>
+    <div class="container-h">
+        <div class="container-v subcontainer">
+            <div class="card">
+                <h3 class="titleCard">Resumen del producto</h3>
+                <div class="container-h">
+                    <img class="imageProduct" src="../../assets/resources/{{currentProduct.image}}">
+                    <div class="productDetails">
+                        <div>
+                            <span class="category">Producto</span> 
+                            {{currentProduct.name}}
+                        </div> 
+                        <div>
+                            <span class="category">SKU</span> 
+                            {{currentProduct.sku}}
+                        </div> 
+                        <div>
+                            <span class="category">Código de barras</span> 
+                            {{currentProduct.barcode}}
+                        </div> 
+                        <div>
+                            <span class="category">Precio</span> 
+                            {{currentProduct.price}}
+                        </div> 
+                    </div>
+                </div>
+                <div class="switchSummary">
+                    <span class="category">Estado</span>
+                    <mat-slide-toggle [checked]="currentProduct.enabled" (change)="statusChange($event)" ></mat-slide-toggle>
+                </div> 
+            </div>
+            <div class="card">
+                <h3 class="titleCard">Requerimientos del packaging</h3>
+                <div class="radioRequirements">
+                    <mat-checkbox *ngFor="let radio of currentProduct.requirements; index as i;" 
+                    class="margin" [checked]="radio.value" (change)="requirementChange($event.checked, radio.id)">
+                        {{radio.name}}
+                    </mat-checkbox>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h3 class="titleCard">Inventario</h3>
+            <table mat-table [dataSource]="stockList">
+                <!-- City Column -->
+                <ng-container matColumnDef="cityWarehouse">
+                  <th mat-header-cell *matHeaderCellDef> Ciudad </th>
+                  <td mat-cell *matCellDef="let element"> 
+                      <a>{{element.cityWarehouse}}</a>
+                  </td>
+                </ng-container>
+              
+                <!-- Country Column -->
+                <ng-container matColumnDef="countryWarehouse">
+                  <th mat-header-cell *matHeaderCellDef> País </th>
+                  <td mat-cell *matCellDef="let element">
+                      <a>{{element.countryWarehouse}}</a>
+                  </td>
+                </ng-container>
+              
+                <!-- Name Warehouse Column -->
+                <ng-container matColumnDef="nameWarehouse">
+                  <th mat-header-cell *matHeaderCellDef> Almacén </th>
+                  <td mat-cell *matCellDef="let element"> 
+                      <a>{{element.nameWarehouse}}</a> 
+                  </td>
+                </ng-container>
+              
+                <!-- Quantity Column -->
+                <ng-container matColumnDef="quantity">
+                  <th mat-header-cell *matHeaderCellDef> Stock disponible </th>
+                  <td mat-cell *matCellDef="let element">
+                    <a>{{element.quantity}}</a>
+                  </td>
+                </ng-container>
+
+                <!-- Status Column -->
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element">
+                        <mat-progress-bar
+                            [color]="red"
+                            [mode]="determinate"
+                            [value]="element.status"
+                        ></mat-progress-bar>
+                    </td>
+                  </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+        </div>
+    </div>
+</div>

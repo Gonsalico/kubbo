@@ -7,6 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductsComponent } from './products/products.component';
 import { DetailsComponent } from './details/details.component';
 
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +22,12 @@ import { DetailsComponent } from './details/details.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSlideToggleModule,
+    MatProgressBarModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
