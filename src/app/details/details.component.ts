@@ -39,8 +39,6 @@ export class DetailsComponent implements OnInit {
   }
 
   requirementChange(value: boolean, idRadio: number){
-    console.log(this.idProduct);
-    console.log(idRadio);
     this.productService.changeRequirement(this.idProduct, idRadio, value)
   }
 

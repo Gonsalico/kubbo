@@ -35,8 +35,6 @@ export class ProductsMockService{
         let idProd = this.products.findIndex(product => product.id === idProduct);
         let idReq = this.products[idProd].requirements.findIndex(requi => requi.id === idRadio);
 
-        console.log(idProd);
-        console.log(idReq);
         this.products[idProd].requirements[idReq].value = newValue;
     }
 
